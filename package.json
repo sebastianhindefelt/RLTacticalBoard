@@ -1,0 +1,9 @@
+{
+  "name": "rl-tactical-board",
+  "version": "0.0.1",
+  "description": "a tactical board for Rocket League",
+  "dependencies": {
+    "node-static": "^0.7.7",
+    "socket.io": "^1.4.4"
+  }
+}

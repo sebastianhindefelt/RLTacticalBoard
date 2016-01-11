@@ -8,6 +8,9 @@
 
 /* Begin PBXFileReference section */
 		49560E341C43E1E200956BDA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
+		49560E351C43E2CF00956BDA /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
+		49560E361C43EE5000956BDA /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
+		49560E371C44183000956BDA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = public/index.html; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -15,6 +18,9 @@
 			isa = PBXGroup;
 			children = (
 				49560E341C43E1E200956BDA /* index.html */,
+				49560E361C43EE5000956BDA /* package.json */,
+				49560E351C43E2CF00956BDA /* server.js */,
+				49560E371C44183000956BDA /* index.html */,
 			);
 			sourceTree = "<group>";
 		};
