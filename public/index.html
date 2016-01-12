@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            canvas {
+                background-image: url("/img/DFHStadium.png");
+                background-size: 100% 100%;
+            }
+        </style>
+        <title>Rocket League Tactical Board</title>
+    </head>
+    <body>
+        <canvas id="field" width="400" height="600"></canvas>
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io.connect();
+            var username = 'unnamed';
+            var c = document.getElementById("field");
+            c.addEventListener('mousedown', handleMouse, false);
+            var img = new Image;
+            img.src = "/img/car.png";
+            socket.on('update', function(data) {
+                      var c = document.getElementById("field");
+                      var ctx = c.getContext("2d");
+                      ctx.clearRect(0,0,c.width,c.height);
+                      
+                      ctx.drawImage(img,data.xPos,data.yPos);
+            });
+            socket.on('username', function(data) {
+                username = data.username;
+            });
+            
+            
+            function handleMouse(event) {
+                var x = event.pageX;
+                var y = event.pageY;
+                socket.emit('clicked', {username: username, xPos: x, yPos: y});
+            }
+            </script>
+    </body>
+</html>

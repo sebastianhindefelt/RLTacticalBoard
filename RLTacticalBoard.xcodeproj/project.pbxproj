@@ -9,18 +9,16 @@
 /* Begin PBXFileReference section */
 		49560E351C43E2CF00956BDA /* server.js */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.javascript; path = server.js; sourceTree = "<group>"; };
 		49560E361C43EE5000956BDA /* package.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = package.json; sourceTree = "<group>"; };
-		49560E391C453A1400956BDA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; path = index.html; sourceTree = "<group>"; };
-		49560E3A1C453A1400956BDA /* DFHStadium.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DFHStadium.png; sourceTree = "<group>"; };
-		49560E3B1C453A1B00956BDA /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; path = style.css; sourceTree = "<group>"; };
+		49560E3C1C453CA200956BDA /* index.html */ = {isa = PBXFileReference; lastKnownFileType = text.html; name = index.html; path = public/index.html; sourceTree = "<group>"; };
+		49560E3D1C453CAA00956BDA /* style.css */ = {isa = PBXFileReference; lastKnownFileType = text.css; name = style.css; path = public/css/style.css; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		49560E2D1C43DECC00956BDA = {
 			isa = PBXGroup;
 			children = (
-				49560E3B1C453A1B00956BDA /* style.css */,
-				49560E391C453A1400956BDA /* index.html */,
-				49560E3A1C453A1400956BDA /* DFHStadium.png */,
+				49560E3D1C453CAA00956BDA /* style.css */,
+				49560E3C1C453CA200956BDA /* index.html */,
 				49560E361C43EE5000956BDA /* package.json */,
 				49560E351C43E2CF00956BDA /* server.js */,
 			);

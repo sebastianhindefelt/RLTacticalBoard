@@ -6,15 +6,18 @@
  */
 
 // modules
-var app = require('express')();
+var express = require('express');
+var app = express();
 var server = require('http').Server(app);
 var io = require('socket.io')(server);
 
 server.listen(8080);
 
-app.get('/', function (req, res) {
-        res.sendFile(__dirname + '/index.html');
-        });
+app.use(express.static(__dirname + '/public'));
+
+//app.get('/', function (req, res) {
+//        res.sendFile(__dirname + '/index.html');
+//        });
 
 var col = true;
 var users = 0;
@@ -27,12 +30,7 @@ io.sockets.on('connection', function (socket) {
                 console.log('user disconnected');
       });
       socket.on('clicked', function(data) {
-                col = !col;
-                //console.log(data.username+' has clicked the canvas');
-                if(col) {
-                    io.emit('changeColor', {color: "#FF0000"});
-                } else {
-                    io.emit('changeColor', {color: "#00FF00"});
-                }
-        });
+            console.log(data.username+' clicked the canvas');
+            io.emit('update', {xPos: data.xPos, yPos: data.yPos});
+      });
 });
