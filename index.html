@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="style.css">
         <title>Simple, Static Node.js Server</title>
     </head>
     <body>
@@ -13,10 +14,10 @@
             var c = document.getElementById("field");
             c.addEventListener('mousedown', handleMouse, false);
             socket.on('changeColor', function (data) {
-                var c = document.getElementById("field");
-                var ctx = c.getContext("2d");
-                ctx.fillStyle = data.color;
-                ctx.fillRect(0,0,150,75);
+                //var c = document.getElementById("field");
+                //var ctx = c.getContext("2d");
+                //ctx.fillStyle = data.color;
+                //ctx.fillRect(0,0,150,75);
                 //console.log(username+' updated');
             });
             socket.on('username', function(data) {

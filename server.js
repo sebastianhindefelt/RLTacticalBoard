@@ -13,7 +13,7 @@ var io = require('socket.io')(server);
 server.listen(8080);
 
 app.get('/', function (req, res) {
-        res.sendFile(__dirname + '/public/index.html');
+        res.sendFile(__dirname + '/index.html');
         });
 
 var col = true;
