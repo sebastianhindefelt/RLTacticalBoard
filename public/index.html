@@ -10,7 +10,9 @@
         <title>Rocket League Tactical Board</title>
     </head>
     <body>
-        <canvas id="field" width="400" height="600"></canvas>
+        <canvas id="field" ondrop="drop(event)" width="400" height="600"></canvas>
+        <img id="car" src="/img/car.png" draggable="true"
+            ondragstart="drag(event)" width="86" height="169">
         <script src="/socket.io/socket.io.js"></script>
         <script>
             var socket = io.connect();
@@ -19,23 +21,40 @@
             c.addEventListener('mousedown', handleMouse, false);
             var img = new Image;
             img.src = "/img/car.png";
+            
+            // network operations
             socket.on('update', function(data) {
                       var c = document.getElementById("field");
                       var ctx = c.getContext("2d");
-                      ctx.clearRect(0,0,c.width,c.height);
                       
+                      ctx.clearRect(0,0,c.width,c.height);
                       ctx.drawImage(img,data.xPos,data.yPos);
             });
             socket.on('username', function(data) {
                 username = data.username;
             });
             
-            
+            // handlers
             function handleMouse(event) {
                 var x = event.pageX;
                 var y = event.pageY;
                 socket.emit('clicked', {username: username, xPos: x, yPos: y});
             }
+        
+            function drop(event) {
+                event.preventDefault();
+                var data = event.dataTransfer.getData("type");
+                socket.emit('added', {type: data});
+            }
+        
+            function drag(event) {
+                event.dataTransfer.setData("type", event.target.id);
+            }
+        
+            function allowDrop(ev) {
+                event.preventDefault();
+            }
+            
             </script>
     </body>
 </html>

@@ -21,16 +21,22 @@ app.use(express.static(__dirname + '/public'));
 
 var col = true;
 var users = 0;
+var objects {cars: []};
 io.sockets.on('connection', function (socket) {
-      users += 1;
-      console.log('user '+users+' connected');
-      socket.emit('username', {username: 'User'+users});
-      socket.emit('changeColor', {color: "#FF0000"});
-      socket.on('disconnect', function() {
-                console.log('user disconnected');
-      });
-      socket.on('clicked', function(data) {
-            console.log(data.username+' clicked the canvas');
-            io.emit('update', {xPos: data.xPos, yPos: data.yPos});
-      });
+    users += 1;
+    console.log('user '+users+' connected');
+    socket.emit('username', {username: 'User'+users});
+    socket.on('disconnect', function() {
+        console.log('user disconnected');
+    });
+    socket.on('clicked', function(data) {
+        io.emit('update', {xPos: data.xPos, yPos: data.yPos});
+    });
+    socket.on('added', function(data) {
+        if(data.type === "car") {
+            
+        }
+        io.emit(
+    });
+              
 });
