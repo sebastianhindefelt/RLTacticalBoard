@@ -21,7 +21,10 @@ app.use(express.static(__dirname + '/public'));
 
 var col = true;
 var users = 0;
-var objects {cars: []};
+var fieldObjects {cars: []};
+
+function Car(x,y,type)
+
 io.sockets.on('connection', function (socket) {
     users += 1;
     console.log('user '+users+' connected');
@@ -34,7 +37,7 @@ io.sockets.on('connection', function (socket) {
     });
     socket.on('added', function(data) {
         if(data.type === "car") {
-            
+            fieldObjects.cars.append(
         }
         io.emit(
     });

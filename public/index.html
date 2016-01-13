@@ -48,6 +48,9 @@
             }
         
             function drag(event) {
+                // TODO: probably better to let it drag the image and then catch the drag over the canvas and add the car there
+                // an alternative would be to add some kind of other image along with the drag
+                event.preventDefault();
                 event.dataTransfer.setData("type", event.target.id);
             }
         
