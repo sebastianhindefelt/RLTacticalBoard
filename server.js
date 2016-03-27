@@ -21,9 +21,11 @@ app.use(express.static(__dirname + '/public'));
 
 var col = true;
 var users = 0;
-var fieldObjects {cars: []};
+var fieldObjects = {cars: []};
 
-function Car(x,y,type)
+function Car(x,y,type) {
+    return {x: x,y: y, type: type};
+}
 
 io.sockets.on('connection', function (socket) {
     users += 1;
@@ -33,13 +35,17 @@ io.sockets.on('connection', function (socket) {
         console.log('user disconnected');
     });
     socket.on('clicked', function(data) {
-        io.emit('update', {xPos: data.xPos, yPos: data.yPos});
+        //io.emit('update', {xPos: data.xPos, yPos: data.yPos});
     });
     socket.on('added', function(data) {
         if(data.type === "car") {
-            fieldObjects.cars.append(
+            fieldObjects.cars.append(Car(data.x, data.y, data.type));
         }
-        io.emit(
+        var i;
+        for(i = 0; i < fieldObjects.cars.length; i++) {
+            var car = fieldObjects.cars[i];
+            io.emit('object', {object: "car", type: "friendly", xPos: car.x, yPos: car.y});
+        }
     });
               
 });
